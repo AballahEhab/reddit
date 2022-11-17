@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/articlesHomeFragment">
+
+    <fragment
+        android:id="@+id/articlesDetailsFragment"
+        android:name="com.abdallah.ehab.reddit.features.articles.ui.view.ArticleDetailsFragment"
+        android:label="fragment_articles_details"
+        tools:layout="@layout/fragment_article_details" >
+        <argument
+            android:name="article_data"
+            app:argType="com.abdallah.ehab.reddit.features.articles.data.models.ArticleData" />
+    </fragment>
+    <fragment
+        android:id="@+id/articlesHomeFragment"
+        android:name="com.abdallah.ehab.reddit.features.articles.ui.view.ArticlesHomeFragment"
+        android:label="fragment_articles_home"
+        tools:layout="@layout/fragment_articles_home" >
+        <action
+            android:id="@+id/action_articlesHomeFragment_to_articlesDetailsFragment"
+            app:destination="@id/articlesDetailsFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="articleData"
+            type="com.abdallah.ehab.reddit.features.articles.data.models.ArticleData"
+            />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/detailed_article_scroll_view"
+        style="@style/roundedImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTintMode="screen"
+        tools:context=".features.articles.ui.view.articleDetailsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailed_article_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/detailed_article_img"
+                android:layout_width="@dimen/_200dp"
+                android:layout_height="@dimen/_200dp"
+                android:layout_marginTop="@dimen/_48dp"
+                android:contentDescription="@string/detailed_article_image"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{articleData.thumbnail_url}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+            <TextView
+                android:id="@+id/detailed_article_title_label_txt_v"
+                style="@style/DetailedArticleLabelText"
+                android:text="@string/detailed_article_title_label_txt"
+                app:layout_constraintBottom_toBottomOf="@id/detailed_article_title_content_txt"
+                app:layout_constraintEnd_toStartOf="@id/detailed_article_title_content_txt"
+                app:layout_constraintTop_toTopOf="@id/detailed_article_title_content_txt" />
+
+            <TextView
+                android:id="@+id/detailed_article_published_by_label_txt_v"
+                style="@style/DetailedArticleLabelText"
+                android:text="@string/detailed_article_published_by_label_txt"
+                app:layout_constraintBottom_toBottomOf="@+id/detailed_article_publish_by_content_txt"
+                app:layout_constraintEnd_toStartOf="@id/detailed_article_publish_by_content_txt"
+                app:layout_constraintTop_toTopOf="@+id/detailed_article_publish_by_content_txt" />
+
+
+            <TextView
+                android:id="@+id/detailed_article_title_content_txt"
+                style="@style/DetailedArticleContentText"
+                android:text="@{articleData.title}"
+                app:layout_constraintStart_toEndOf="@+id/detailed_article_title_label_txt_v"
+                app:layout_constraintTop_toBottomOf="@+id/detailed_article_img" />
+
+            <TextView
+                android:id="@+id/detailed_article_publish_by_content_txt"
+                style="@style/DetailedArticleContentText"
+                android:text="@{articleData.selftext}"
+                app:layout_constraintStart_toEndOf="@+id/detailed_article_published_by_label_txt_v"
+                app:layout_constraintTop_toBottomOf="@+id/detailed_article_title_content_txt" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
+

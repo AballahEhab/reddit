@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">reddit</string>
+    <string name="detailed_article_title_label_txt">Title</string>
+    <string name="detailed_article_published_by_label_txt">body</string>
+    <string name="detailed_article_image">detailed article image</string>
+    <string name="article_overview_image_txt">article overview image</string>
+</resources>
